@@ -28,6 +28,9 @@ public class Client {
         serverString = in.readLine();
         System.out.print("Risposta dal server: " + serverString + '\n');
         serverString = in.readLine();
+        System.out.print("Risposta dal server: " + serverString + '\n');
+        Messaggio tuttiBiglietti = parser.readValue(serverString, Messaggio.class);
+        
         socket.close();
     }
 }

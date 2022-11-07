@@ -14,6 +14,9 @@ public class Biglietto {
         this.nome = nome + "-" + id;
     }
 
+    public Biglietto() {
+    }
+
     public int getId() {
         return this.id;
     }
