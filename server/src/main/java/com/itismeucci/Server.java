@@ -103,7 +103,7 @@ public class Server {
                 biglietti.remove(b);
             }
         }
-        
+        out.writeBytes(parser.writeValueAsString(bigliettiEffettivamenteAcquistati));
         this.client.close();
     }
 }

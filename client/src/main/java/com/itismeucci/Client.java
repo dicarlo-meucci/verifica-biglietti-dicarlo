@@ -36,7 +36,10 @@ public class Client {
         out.writeBytes(parser.writeValueAsString(bigliettoDaComprare));
         serverString = in.readLine();
         Messaggio bigliettiComprati = parser.readValue(serverString, Messaggio.class);
-        for ()
+        for (Biglietto b : bigliettiComprati.getBiglietti())
+        {
+            System.out.println("BIGLIETTI COMPRATI: " + b.getNome() + " ");
+        }
         socket.close();
         System.exit(0);
     }
