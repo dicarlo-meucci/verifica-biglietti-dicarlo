@@ -30,7 +30,14 @@ public class Client {
         serverString = in.readLine();
         System.out.print("Risposta dal server: " + serverString + '\n');
         Messaggio tuttiBiglietti = parser.readValue(serverString, Messaggio.class);
-        
+        Biglietto primoBiglietto = tuttiBiglietti.getBiglietti().get(0);
+        Messaggio bigliettoDaComprare = new Messaggio();
+        bigliettoDaComprare.getBiglietti().add(primoBiglietto);
+        out.writeBytes(parser.writeValueAsString(bigliettoDaComprare));
+        serverString = in.readLine();
+        Messaggio bigliettiComprati = parser.readValue(serverString, Messaggio.class);
+        for ()
         socket.close();
+        System.exit(0);
     }
 }

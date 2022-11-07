@@ -92,6 +92,18 @@ public class Server {
             tuttiBiglietti.setBiglietti(biglietti);
             out.writeBytes(parser.writeValueAsString(tuttiBiglietti));
         }
+        this.recv = in.readLine();
+        Messaggio acquisto = parser.readValue(recv, Messaggio.class);
+        Messaggio bigliettiEffettivamenteAcquistati = new Messaggio();
+        for (Biglietto b : acquisto.getBiglietti())
+        {
+            if (biglietti.equals(b))
+            {
+                bigliettiEffettivamenteAcquistati.getBiglietti().add(b);
+                biglietti.remove(b);
+            }
+        }
+        
         this.client.close();
     }
 }
